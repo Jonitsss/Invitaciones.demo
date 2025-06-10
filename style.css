@@ -495,6 +495,20 @@ footer img {
     /* Puedes añadir más estilos para que el mensaje destaque */
 }
 
+.galeria-scroll {
+  display: none;
+}
+
+/* Galería horizontal solo en mobile */
+.galeria-scroll {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+
 @media (max-width: 600px) {
     header {
         width: 100%;
@@ -531,27 +545,62 @@ footer img {
     .lovestorybox{
         margin: 20px 10px;
     }
-        .galeria1 {
-            width: 100%;
-            display: grid;
-            grid-template-columns:1fr;
-        }
-        .f3, .f4  {
-            display: none;
-        }
+    .galeria2 {
+    display: none; /* Oculta la versión grid en mobile */
+  }
+
+  .galeria-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .galeria-scroll img {
+    flex: 0 0 auto;
+    width: 80vw;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    scroll-snap-align: center;
+    object-fit: cover;
+  }
+
+  .galeria-scroll .espaciador {
+    width: 10vw;
+    flex-shrink: 0;
+  }
+  }
+
+
+.galeria1 {
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr;
+    }
+.f3, .f4  {
+     display: none;
+    }
     
-        .galeria1 img {
-            width: 100vw;
-        }
-        .galeria2 {
-            width: 100%;
-            display: grid;
-            grid-template-columns:1fr 1fr;
-        }
+.galeria1 img {
+    width: 100vw;
+    }
+
+.galeria2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    }
     
-        .galeria2 img {
-            width: 50vw;
-        }
+.galeria2 img {
+    width: 50vw;
+    }
 
  
 .timeline .iconos {
@@ -571,6 +620,3 @@ footer img {
             width: 140px;
             margin: auto;
         }
-
-        
-    }
