@@ -1,3 +1,13 @@
+const fechaHabilitada = new Date("2025-11-08T00:00:00");
+const hoy = new Date();
+const ubicacion = document.querySelector(".ubicacion");
+
+if (hoy < fechaHabilitada) {
+    ubicacion.classList.add("bloqueada");
+  } else {
+    ubicacion.classList.remove("bloqueada");
+  }
+  
 // Establecer la fecha de destino
 const fechaDestino = new Date("2025-11-15T21:30:00");
 

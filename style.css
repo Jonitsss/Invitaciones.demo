@@ -478,6 +478,27 @@ footer img {
    
 }
 
+  .ubicacion.bloqueada {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+  }
+
+  .ubicacion.bloqueada::after {
+    content: "Ubicación disponible desde el 8/11/2025";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+  }
+
 @media (max-width: 600px) {
     header {
         width: 100%;
