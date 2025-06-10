@@ -477,27 +477,23 @@ footer img {
     margin: 0;
    
 }
+.blureado {
+    filter: blur(5px); /* Ajusta el valor para más o menos blur */
+    pointer-events: none; /* Evita que se pueda seleccionar el texto blureado */
+    user-select: none; /* Para una mejor compatibilidad */
+}
 
-  .ubicacion.bloqueada {
-    filter: blur(6px);
-    pointer-events: none;
-    user-select: none;
-    position: relative;
-  }
+/* Por defecto, la dirección estará oculta y el mensaje visible */
+#direccionOculta {
+    display: none;
+}
 
-  .ubicacion.bloqueada::after {
-    content: "Ubicación disponible desde el 8/11/2025";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.8);
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
+#mensajeEspera {
+    color: #888; /* Un color más suave para el mensaje */
+    font-style: italic;
     text-align: center;
-  }
+    /* Puedes añadir más estilos para que el mensaje destaque */
+}
 
 @media (max-width: 600px) {
     header {

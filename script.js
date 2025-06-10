@@ -1,13 +1,29 @@
-const fechaHabilitada = new Date("2025-11-08T00:00:00");
-const hoy = new Date();
-const ubicacion = document.querySelector(".ubicacion");
+document.addEventListener('DOMContentLoaded', function() {
+    const direccionOculta = document.getElementById('direccionOculta');
+    const mensajeEspera = document.getElementById('mensajeEspera');
 
-if (hoy < fechaHabilitada) {
-    ubicacion.classList.add("bloqueada");
-  } else {
-    ubicacion.classList.remove("bloqueada");
-  }
-  
+    // Fecha del evento: 15 de noviembre de 2025
+    const fechaEvento = new Date('2025-11-15T00:00:00'); 
+    
+    // Calcula la fecha de revelación (1 semana antes del evento)
+    // 7 días * 24 horas * 60 minutos * 60 segundos * 1000 milisegundos
+    const unaSemanaEnMilisegundos = 7 * 24 * 60 * 60 * 1000;
+    const fechaRevelacion = new Date(fechaEvento.getTime() - unaSemanaEnMilisegundos);
+
+    const fechaActual = new Date(); // La fecha y hora actuales
+
+    if (fechaActual >= fechaRevelacion) {
+        // Si ya es la fecha de revelación o después
+        direccionOculta.style.display = 'block'; // Muestra la dirección
+        direccionOculta.classList.remove('blureado'); // Quita el blur
+        mensajeEspera.style.display = 'none'; // Oculta el mensaje
+    } else {
+        // Si aún no es la fecha de revelación
+        direccionOculta.style.display = 'block'; // Asegúrate de que el contenedor esté visible
+        direccionOculta.classList.add('blureado'); // Aplica el blur
+        mensajeEspera.style.display = 'block'; // Muestra el mensaje
+    }
+});
 // Establecer la fecha de destino
 const fechaDestino = new Date("2025-11-15T21:30:00");
 
